@@ -4,9 +4,8 @@ WORKDIR /app
 COPY package*.json /app/
 RUN npm install
 COPY . /app
-ARG configuration=production
-RUN npm run build -- --output-path=./dist/out --configuration $configuration --base-href=/a.hartl1/dipl/
-
+RUN npm run build -- --output-path=./dist/out --prod --base-href=/a.hartl1/dipl/
+#npm run build -- --configuration production
 # Stage 2, use the compiled app, ready for production with Nginx
 FROM nginx
 COPY --from=build /app/dist/out/ /usr/share/nginx/html
