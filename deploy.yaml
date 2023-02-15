@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: ghcr.io/htl-leonding-project/2022-4ahif-leo-competition-frontendTODO
+          image: ghcr.io/
           ports:
             - containerPort: 80
           imagePullPolicy: Always
