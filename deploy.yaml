@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: ghcr.io/htl-leonding-project/2022-4ahif-leo-competition-frontend
+          image: ghcr.io/htl-leonding-project/2022-4ahif-leo-competition-frontendTODO
           ports:
             - containerPort: 80
           imagePullPolicy: Always
@@ -24,7 +24,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: frontend-svc
-  namespace: student-c-handel
+  namespace: student-a-hartl1
 spec:
   ports:
     - port: 80
