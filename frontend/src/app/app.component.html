@@ -1,0 +1,124 @@
+<nav class="navbar navbar-light bg-light">
+
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img
+        src="assets/vin.jpeg"
+        class="me-2 icon"
+        height="60"
+        alt=""
+        loading="lazy"
+      />
+      <a class="navbar-font">Vinitor</a>
+    </a>
+  </div>
+</nav>
+
+
+<app-progress #progress (stateChange)="onStateChange($event)">
+  <app-progress-step>
+    <div class="container-fluid">
+      <div class="m-3 row">
+    <input
+    [(ngModel)]="inputGeo"
+    placeholder="Search for location"
+    autocorrect="off"
+    id="inputGeo"
+    autocapitalize="off"
+    spellcheck="off"
+    type="text"
+    class="form-control input-geo"
+    #search
+  />
+  <button (click)="findLatLong()" class="btn btn-find">
+    Search
+  </button>
+  <div class="m-3 row">
+    <div class="col-6 container-map">
+      <div #screen class="map" id="map"></div>
+    </div>
+
+    <div class="col-6">
+      <img
+        alt="Could not connect"
+        class="image"
+        [src]="image_base_url + img_name"
+        *ngIf="showSpinner == false"
+      />
+
+      <mat-progress-spinner
+        mode="indeterminate"
+        *ngIf="showSpinner == true"
+        color="warn"
+        [diameter]="300"
+        class="progress-spinner"
+      ></mat-progress-spinner>
+    </div>
+
+    <button
+      (click)="makeCapture()"
+      class="btn button-capture"
+    >
+      Capture
+    </button>
+
+    <button class="btn btn-find" style="margin-left: -22px;" (click)="goNext(progress); drawCanvas()">
+      Analyse
+    </button>
+  </div>
+  </div>
+</div>
+
+  </app-progress-step>
+  <app-progress-step>
+
+    <div  class="container-fluid" style="text-align: center;">
+      <canvas id="gameCanvas" class="canvas"></canvas>
+      <p id="colorBox"  style="margin-left: 280px;height:50px;width: 70%;border-style: solid;border-color: #b31b43;"></p>
+      <button class="btn button-capture" style="width: 620px; margin-left: 5px;" progressStepPrev>Previous</button>
+      <button class="btn button-capture" style="width: 620px; margin-left: 50px;" (click)="analyseField();goNext(progress) ">Analyse</button>
+
+      <!-- <img
+      class="image"
+      [src]="'http://127.0.0.1:5000/analysedImage/'+ image_name"
+      />
+
+      <br>
+
+      <h1 (click)="fieldClicked(field)" *ngFor="let field of fields; let i = index"
+      [ngStyle]="{'backgroundColor': '#'+field.color}">
+      {{i+1}}. Feld <br>
+    </h1> -->
+
+    </div>
+  </app-progress-step>
+  <app-progress-step>
+    <div class="container-fluid">
+      <div class="m-3 row">
+        <div class="col-6 container-map">
+
+          <img src="{{img_crop}}" class="classImg" *ngIf="showSecondSpinner == false">
+
+          <button class="btn button-capture" style="width: 710px; margin-left: 5px;" progressStepPrev *ngIf="showSecondSpinner == false">Previous</button>
+        </div>
+        <div class="col-6">
+          <canvas  id="MyChart">{{ chart }}</canvas>
+        </div>
+    </div>
+    </div>
+    <div>
+      <mat-progress-spinner
+        mode="indeterminate"
+        *ngIf="showSecondSpinner == true"
+        color="warn"
+        [diameter]="400"
+        class="progress-spinner"
+      ></mat-progress-spinner>
+    </div>
+
+  </app-progress-step>
+
+</app-progress>
+
+
+

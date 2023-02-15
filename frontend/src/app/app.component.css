@@ -1,0 +1,115 @@
+.match-parent {
+  height: 700px;
+  width: 100%
+}
+.result-image{
+  height: 700px;
+  width: 100%
+}
+
+.float-parent-element {
+  width: 100%;
+}
+.float-child-element {
+  float: left;
+  width: 50%;
+}
+
+.map{
+  height: 500px;
+}
+
+.image{
+  height: 500px;
+  margin-left: 35px;
+}
+
+.button-capture{
+  margin-left: -23px;
+  width: 900px;
+  margin-top: 10px;
+  height: 50px;
+}
+
+:host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #b31b43;
+}
+
+.box {
+  position:absolute;
+  top:150px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+}
+
+.btn{
+  background-color: #b31b43;
+  color: white;
+  font-size: 25px;
+
+}
+.btn:active{
+  background-color: #b31b43;
+  color: white;
+}
+
+.btn-find{
+  margin-top: 10px;
+  border-color: #b31b43;
+  color:#b31b43;
+
+  background-color: transparent;
+  font-size: 25px;
+
+}
+.btn-find:hover{
+
+
+  background-color: #b31b43;
+  color: white;
+
+}
+
+.progress-spinner{
+  margin: 100px auto
+}
+
+.container-map{
+  margin-left: -34px;
+}
+
+.input-geo{
+  font-size: 25px;
+}
+
+.icon{
+  margin-top: -20px
+}
+
+.navbar-font{
+  color: #b31b43;
+  font-size: 40px;
+  text-decoration: none;
+}
+
+.canvas{
+
+}
+
+.colorBox{
+  padding:100px;
+  height:10px;
+  width: 20px;
+  border-style: solid;
+  border-color: #b31b43;
+  justify-content: center;
+  display: flex;
+}
+
+.classImg{
+  width: 80%;
+  height: 80%;
+}
+
+
