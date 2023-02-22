@@ -17,6 +17,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Add Mapbox API Key
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+            find: "accessToken:''"
+            replace: "accessToken:'${{ secrets.MAPBOX_API }}'"
+            regex: true
+
+      - name: Add Google API Key
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "GOOGLE_MAPS_API_KEY:''"
+          replace: "GOOGLE_MAPS_API_KEY:'${{ secrets.GOOGLE_API }}'"
+          regex: true
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
 
