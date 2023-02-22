@@ -5,7 +5,9 @@
 export const environment = {
   mapbox: {
     accessToken: ''
-  }
+  },
+  host: "http://0.0.0.0:5000",
+  GOOGLE_MAPS_API_KEY: ''
 };
 
 /*

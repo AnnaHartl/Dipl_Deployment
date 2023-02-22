@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-
-const GOOGLE_MAPS_API_KEY = '';
+import { environment } from 'src/environments/environment.prod';
 
 export type Maps = typeof google.maps;
 
@@ -34,7 +33,7 @@ export class ApiService {
     const query: QueryParams = {
       v: '3',
       callback,
-      key: GOOGLE_MAPS_API_KEY,
+      key: environment.GOOGLE_MAPS_API_KEY,
       libraries: 'places',
     };
     const params = Object.keys(query).map(key => `${key}=${query[key]}`).join('&');
