@@ -6,7 +6,7 @@ export const environment = {
   mapbox: {
     accessToken: ''
   },
-  host: "http://0.0.0.0:5000",
+  host: "https://student.cloud.htl-leonding.ac.at/a.hartl1/dipl/api",
   GOOGLE_MAPS_API_KEY: ''
 };
 
