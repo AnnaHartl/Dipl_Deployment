@@ -63,7 +63,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   img = '';
   img_name = "cover.png";
   display: any;
-  image_base_url = 'http://127.0.0.1:5000/analysedImage/';
+  image_base_url = environment.host+'/analysedImage/';
   @ViewChild('screen', { static: true }) screen: any;
   map: mapboxgl.Map | undefined;
   style = 'mapbox://styles/mapbox/satellite-v9';
@@ -236,7 +236,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     //image.src = 'assets/field_20.png';
     //console.log(this.image_name)
     console.log(this.globalService.image_name)
-    image.src = "http://127.0.0.1:5000/analysedImage/thick_"+this.globalService.image_name+ '?' + new Date().getTime();
+    image.src = environment.host+"/analysedImage/thick_"+this.globalService.image_name+ '?' + new Date().getTime();
     image.setAttribute('crossOrigin', '');
 
     //Click eventlistener
@@ -301,7 +301,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.showSecondSpinner = true;
     const image: any = new Image(600, 600);
     console.log("test")
-    this.img_crop = "http://127.0.0.1:5000/analysedField/crop_"+this.globalService.image_name.substring(0, this.globalService.image_name.length - 4) +"/" +this.count;
+    this.img_crop = environment.host+"/analysedField/crop_"+this.globalService.image_name.substring(0, this.globalService.image_name.length - 4) +"/" +this.count;
     //this.classifiactionResult = "http://127.0.0.1:5000/getJsonColors/crop_"+this.globalService.image_name.substring(0, this.globalService.image_name.length - 4);
     //console.log("!!!" + this.classifiactionResult)
     console.log(this.img_crop);
