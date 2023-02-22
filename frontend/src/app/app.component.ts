@@ -320,7 +320,11 @@ export class AppComponent implements OnInit, AfterViewInit {
           console.log(this.classifiactionResult)
           var splitted = this.classifiactionResult.split(";",3);
           console.log(splitted)
-
+          
+          if(this.chart != null){
+            this.chart.destroy()
+          }
+          
           this.chart = new Chart("MyChart", {
             type: 'bar', //this denotes tha type of chart
             data: {// values on X-Axis
@@ -345,6 +349,7 @@ export class AppComponent implements OnInit, AfterViewInit {
           }
 
           });
+          
 
         }
       })
