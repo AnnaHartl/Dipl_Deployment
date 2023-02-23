@@ -4,3 +4,12 @@
 /.idea/misc.xml
 /.idea/modules.xml
 /.idea/vcs.xml
+/backend/.idea/inspectionProfiles/profiles_settings.xml
+/backend/.idea/.gitignore
+/backend/.idea/misc.xml
+/backend/.idea/modules.xml
+/backend/.idea/Server.iml
+/backend/.idea/vcs.xml
+/backend/best_model_02.torch
+/backend/CNN_aug_best_weights.h5
+/backend/finalized_model.sav
