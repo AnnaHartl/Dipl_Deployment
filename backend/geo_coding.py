@@ -2,7 +2,7 @@ import requests
 
 
 def getLatLong(geocode):
-    API_KEY = 'AIzaSyCU4TK4w0IUouKgciI9TlAvoJSnAK9lPbg'
+    API_KEY = ''
     latLong = [0, 0]
 
     params = {
