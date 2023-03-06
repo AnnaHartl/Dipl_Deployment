@@ -93,16 +93,20 @@
     </div>
   </app-progress-step>
   <app-progress-step>
-    <div class="container-fluid">
+    <div class="container-fluid" >
       <div class="m-3 row">
         <div class="col-6 container-map">
 
           <img src="{{img_crop}}" class="classImg" *ngIf="showSecondSpinner == false">
 
-          <button class="btn button-capture" style="width: 710px; margin-left: 5px;" progressStepPrev *ngIf="showSecondSpinner == false">Previous</button>
+          <button class="btn button-capture" style="width: 710px; margin-left: 5px;" progressStepPrev (click)="showSecondSpinner=true" *ngIf="showSecondSpinner == false">Previous</button>
         </div>
         <div class="col-6">
-          <canvas  id="MyChart">{{ chart }}</canvas>
+          <canvas  id="MyChart">
+            <ng-container *ngIf="showSecondSpinner == false">
+              {{ chart }}
+            </ng-container>
+          </canvas>
         </div>
     </div>
     </div>

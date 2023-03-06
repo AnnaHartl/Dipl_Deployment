@@ -43,7 +43,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   public entries = [];
   showSpinner = false
-  showSecondSpinner = false;
+  showSecondSpinner = true;
 
 
 
@@ -288,12 +288,15 @@ export class AppComponent implements OnInit, AfterViewInit {
         hex,
         this.count
       )
-      .subscribe();
-    this.count += 1;
+      .subscribe({
+        next: value => {
+          this.count += 1;
 
-    if (this.count >= 3) this.count = 0;
+          if (this.count >= 3) this.count = 0;
 
-    this.getAnalysedField();
+          this.getAnalysedField();
+        }
+      });
   }
 
   // Hiere geth Analyse los
@@ -314,17 +317,17 @@ export class AppComponent implements OnInit, AfterViewInit {
       .subscribe({
         next: data=>
         {
-          this.showSecondSpinner = false;
+
 
           this.classifiactionResult = data
           console.log(this.classifiactionResult)
           var splitted = this.classifiactionResult.split(";",3);
           console.log(splitted)
-          
+
           if(this.chart != null){
             this.chart.destroy()
           }
-          
+
           this.chart = new Chart("MyChart", {
             type: 'bar', //this denotes tha type of chart
             data: {// values on X-Axis
@@ -349,8 +352,8 @@ export class AppComponent implements OnInit, AfterViewInit {
           }
 
           });
-          
 
+          this.showSecondSpinner = false;
         }
       })
 
